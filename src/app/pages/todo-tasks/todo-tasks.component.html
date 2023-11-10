@@ -1,0 +1,32 @@
+<section class="todos-page">
+    <!-- <h2 class="todos-page__title">Today</h2> -->
+    <div class="todos-page__content">
+        <app-filter></app-filter>
+
+        <ng-container *ngIf="groups?.length! > 0; else noTasks">
+        
+            
+            <ng-container *ngFor="let item of groups ">
+                <h3 class="group-title">{{item?.group}}</h3>
+            
+                <ng-container *ngFor="let x of item.tasks;let i=index" >
+                    <app-task-item [task]="x" (actionDone)="getTasks()" (taskSelected)="onTaskSelected($event)"></app-task-item>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+        
+        <ng-template #noTasks>
+        
+            <p class="no-tasks" *ngIf="!isSearch">
+                Add Tasks to your ToDo list
+            </p>
+        
+            <p class="no-tasks" *ngIf="isSearch">
+                No tasks Found
+            </p>
+        </ng-template>
+    </div>
+    
+</section>
+
+

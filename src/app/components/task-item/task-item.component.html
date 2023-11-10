@@ -1,0 +1,80 @@
+<div class="task-item">
+    <div class="task-item__data">
+
+        <div class="check-item-wrapp">
+            <input type="checkbox" name="" [id]="task.id" [(ngModel)]="task.selected" (change)="onTaskSelectionChange()">
+            <label class="check-item" [for]="task.id">
+                <span class="icon">
+                    <svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Flights" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Front_End-2" transform="translate(-1450.000000, -311.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                <g id="Group-13" transform="translate(322.000000, 246.000000)">
+                                    <g id="Group-12" transform="translate(0.000000, 46.000000)">
+                                        <g id="Group-17" transform="translate(1120.000000, 9.000000)">
+                                            <g id="tick-(1)" transform="translate(8.000000, 10.000000)">
+                                                <path d="M16.7510391,0.254268493 C16.4191079,-0.0847561642 15.8809523,-0.0847561642 15.5489547,0.254268493 L5.36543583,10.6544721 L1.4510578,6.65684306 C1.11912656,6.31781841 0.58097097,6.31785232 0.248973329,6.65684306 C-0.0829911096,6.99583381 -0.0829911096,7.5454349 0.248973329,7.88445955 L4.7643936,12.4958459 C5.09622522,12.8348367 5.63477925,12.8345993 5.96647807,12.4958459 L16.7510391,1.48191889 C17.0830036,1.14292814 17.0829704,0.593293149 16.7510391,0.254268493 Z" id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </span>
+            </label>
+        </div>
+    
+        <a [routerLink]="['/task-details', task.id]" class="task-title">{{task.title}}</a>
+
+        <span class="task-date">{{task.date}}</span>
+
+        <span class="task-status me-3" [ngClass]="{
+            'done': task.IsComplete == true
+        }">
+            <ng-container *ngIf="task.IsComplete == false">ToDo</ng-container>
+            <ng-container *ngIf="task.IsComplete == true">Done</ng-container>
+            <!-- 'deleted': task?.IsComplete == 3 -->
+        </span>
+
+        <ng-container *ngIf="task?.IsDeleted == true">
+            <span class="task-status" [ngClass]="{
+            
+                'deleted': (task.IsDeleted == true) }">
+                Deleted
+                <!-- 'deleted': task?.IsComplete == 3 -->
+            </span>
+        </ng-container>
+        
+    </div>
+
+
+
+    <div class="task-item__actions">
+        <button class="task-action__button delete-btn" type="button" (click)="deleteTask(task.id!)" *ngIf="!task.IsDeleted">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
+                <g fill="#fff" fill-rule="nonzero">
+                    <path d="M14.083 7.356l-1.677-.064-.364 10.282 1.677.063zM9.161 7.324h1.678v10.282H9.161zM7.958 17.573L7.594 7.292l-1.677.064.364 10.281z"/>
+                    <path d="M.016 3.038v1.737h1.748L3.151 21.1a.85.85 0 0 0 .836.793h11.998a.85.85 0 0 0 .835-.793l1.387-16.324h1.777V3.038H.016zm15.2 17.116H4.756L3.448 4.775h13.074l-1.307 15.38z"/>
+                    <path d="M12.649 0H7.35C6.606 0 6 .619 6 1.38V4h1.622V1.655h4.756V4H14V1.38C14 .618 13.394 0 12.649 0z"/>
+                </g>
+            </svg>            
+        </button>
+        <button class="task-action__button done-btn" type="button" (click)="completeTask(task.id!)" *ngIf="!task.IsComplete">
+            <svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Flights" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Front_End" transform="translate(-1450.000000, -311.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <g id="Group-13" transform="translate(322.000000, 246.000000)">
+                            <g id="Group-12" transform="translate(0.000000, 46.000000)">
+                                <g id="Group-17" transform="translate(1120.000000, 9.000000)">
+                                    <g id="tick-(1)" transform="translate(8.000000, 10.000000)">
+                                        <path d="M16.7510391,0.254268493 C16.4191079,-0.0847561642 15.8809523,-0.0847561642 15.5489547,0.254268493 L5.36543583,10.6544721 L1.4510578,6.65684306 C1.11912656,6.31781841 0.58097097,6.31785232 0.248973329,6.65684306 C-0.0829911096,6.99583381 -0.0829911096,7.5454349 0.248973329,7.88445955 L4.7643936,12.4958459 C5.09622522,12.8348367 5.63477925,12.8345993 5.96647807,12.4958459 L16.7510391,1.48191889 C17.0830036,1.14292814 17.0829704,0.593293149 16.7510391,0.254268493 Z" id="Path"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </button>
+    </div>
+</div>

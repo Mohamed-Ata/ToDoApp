@@ -1,0 +1,87 @@
+<section class="page">
+    <div class="page-head">
+        <h1 class="page-head__title" *ngIf="!isDetails">Add New Task</h1>
+        <h1 class="page-head__title" *ngIf="isDetails">Task Details</h1>
+        <button class="btn back-btn" type="button" routerLink="/tasks-list">Back To List</button>
+    </div>
+
+    <div class="page-content">
+
+        <form [formGroup]="taskForm">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>title</label>
+                        <input class="form-control" formControlName="title" type="text" required placeholder="Task Title" [ngClass]="{
+                            'is-invalid':
+                            taskForm.controls['title'].errors &&
+                              (taskForm.controls['title'].dirty ||
+                              taskForm.controls['title'].touched ||
+                              formSubmitted)
+                          }">
+
+                          <div class="errors" *ngIf="
+                            taskForm.controls['title']?.errors &&
+                                (taskForm.controls['title']?.dirty ||
+                                taskForm.controls['title']?.touched ||
+                                formSubmitted)
+                            ">
+                            <p class="error-message" 
+                                *ngIf="taskForm.controls['title']?.errors?.['required']">
+                                Title Is required
+                            </p>
+                            <p class="error-message" *ngIf="taskForm.controls['title']?.errors?.['maxlength']">
+                                Max length is 150
+                            </p>
+                        </div>
+                    </div><!--End form-group-->
+                </div><!--End col-->
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Group</label>
+                        <select class="form-select" required formControlName="group" [ngClass]="{
+                            'is-invalid':
+                            taskForm.controls['group'].errors &&
+                              (taskForm.controls['group'].dirty ||
+                              taskForm.controls['group'].touched ||
+                              formSubmitted)
+                          }">
+                            <option value="Group A">Group A</option>
+                            <option value="Group B">Group B</option>
+                            <option value="Group C">Group C</option>
+                        </select>
+                    </div><!--End form-group-->
+                </div><!--End col-->
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input class="form-control" formControlName="date" type="date" [min]="maxMinDate" required [ngClass]="{
+                            'is-invalid':
+                            taskForm.controls['date'].errors &&
+                              (taskForm.controls['date'].dirty ||
+                              taskForm.controls['date'].touched ||
+                              formSubmitted)
+                          }">
+                    </div><!--End form-group-->
+                </div><!--End col-->
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" formControlName="description" type="text" required placeholder="Task Description" rows="3" [ngClass]="{
+                            'is-invalid':
+                            taskForm.controls['description'].errors &&
+                              (taskForm.controls['description'].dirty ||
+                              taskForm.controls['description'].touched ||
+                              formSubmitted)
+                          }"></textarea>
+                    </div><!--End form-group-->
+                </div><!--End col-->
+            </div>
+
+            <button class="btn btn-primary" type="submit" (click)="saveData()" *ngIf="!isDetails">Add New</button>
+            <!-- <button class="btn btn-primary" type="submit" (click)="saveData()" *ngIf="isEditing">Edit task</button> -->
+            <button class="btn btn-reset" type="reset" *ngIf="!isDetails">Clear</button>
+
+        </form>
+    </div>
+</section>

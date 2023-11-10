@@ -1,0 +1,37 @@
+.page-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    .page-head__title{
+        color: #fff;
+        font-size: 22px;
+        margin: 0;
+    }
+    .btn.back-btn{
+        background-color: #183c5b;
+        color: #fff;
+        padding: 2px 12px;
+        border: 0;
+        border-radius: 4px;
+    }
+}
+
+.page-content{
+    background: #fff;
+    padding: 20px;
+    border-radius: 3px;
+}
+.btn.btn-primary{
+    background-color: #003d5b;
+    border: 0;
+    border-radius: 4px;
+    padding: 4px 12px;
+
+    margin-inline-end: 15px;
+}
+.btn.btn-reset{
+    border: 1px solid #003d5b;
+    border-radius: 4px;
+    padding: 3px 11px;
+}

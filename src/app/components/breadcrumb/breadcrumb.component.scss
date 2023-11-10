@@ -1,0 +1,59 @@
+// @import "../../../../assets/styles/abstracts/variables";
+:host{
+    .page-head{
+        background-color: #EEEEEF;
+        padding: 3.6rem 0;
+        &.has-float{
+            padding-bottom: 9.4rem;
+        }
+        .page-title{
+            font-size: 4.4rem;
+            font-weight: 700;
+            color: #222529;
+            margin-bottom: 0.8rem;
+            line-height: 6.8rem;        
+        }
+        .breadcrumb-wrapper{
+            .breadcrumb{
+                color: #6E7178;
+                margin-bottom: 0;
+                .breadcrumb-item ,
+                .breadcrumb-item + .breadcrumb-item,
+                .breadcrumb-item .breadcrumb-item__link{
+                    color: #6E7178;
+                    font-size: 1.2rem;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                }
+                .breadcrumb-item {
+                    &:first-child{
+                        &::before{
+                            // content: url(../../../../assets/images/icons/icon-home.png);
+                            padding-left: 0.5rem;
+                            position: relative;
+                            top: 0.2rem;
+                        }
+                    }
+                    + .breadcrumb-item{
+                        font-weight: 500;
+                        padding: 0;
+                        color: #B3B6BB;
+                    }
+                }
+                &.breadcrumb-arrow{
+                    .breadcrumb-item+.breadcrumb-item::before{
+                        content: "\f104";
+                        font-family: "Font Awesome 6 Pro";
+                        padding: 0 0.8rem;
+                        float: right;
+                        top: 2px;
+                        position: relative;
+                        float: right;
+                        color: #B3B6BB;
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,79 @@
+.task-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 15px;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-bottom: 5px;
+
+    &__data{
+        display: flex;
+        align-items: center;
+
+        .task-title{
+            text-transform: capitalize;
+            color: #363636;
+            font-size: 18px;
+            margin: 0;
+            text-decoration: none;
+            margin-inline-end: 20px;
+        }
+        .task-date{
+            color: #363636;
+            font-size: 18px;
+            margin-inline-end: 20px;
+        }
+        .task-status{
+            background-color: #ddd;
+            padding: 5px 8px;
+            text-transform: capitalize;
+            border-radius: 2px;
+            &.done{
+                background-color: #86e0a4;
+                color: #fff;
+            }
+            &.deleted{
+                background-color: #f44336;
+                color: #fff;
+            }
+        }
+    }
+
+    &__actions{
+        display: flex;
+        align-items: center;
+    }
+
+    .task-action__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 8px;
+        border: 0;
+        width: 33px;
+        height: 33px;
+        background-color: #ddd;
+        border-radius: 50%;
+        transition: background-color .3s ease-in-out;
+        &.delete-btn{
+            background-color: #ff9c9c;
+            margin-inline-end: 15px;
+            &:hover{
+                background-color: #f44336;
+            }
+        }
+        &.done-btn{
+            background-color: #86e0a4;
+            &:hover{
+                background-color: #4caf50;
+            }
+        }
+    }
+}
+
+
+.check-item-wrapp{
+    position: relative;
+
+}

@@ -1,0 +1,40 @@
+<section class="filter">
+    <div class="filter-head">
+        <span class="title">Filter By</span>
+        <a routerLink="/add-task" class="add-new">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                <g fill="#FFF" fill-rule="nonzero">
+                    <path d="M9.5 19C4.262 19 0 14.738 0 9.5 0 4.26 4.262 0 9.5 0S19 4.261 19 9.5c0 5.238-4.262 9.5-9.5 9.5zm0-17.915c-4.64 0-8.415 3.775-8.415 8.415 0 4.64 3.775 8.414 8.415 8.414 4.64 0 8.414-3.775 8.414-8.414 0-4.64-3.774-8.415-8.414-8.415z"/>
+                    <path d="M12.988 9.9H5.913c-.283 0-.513-.2-.513-.45 0-.248.23-.45.513-.45h7.075c.283 0 .512.202.512.45 0 .25-.229.45-.512.45z"/>
+                    <path d="M9.45 13.5c-.248 0-.45-.23-.45-.512V5.913c0-.283.202-.513.45-.513.249 0 .45.23.45.513v7.075c0 .283-.2.512-.45.512z"/>
+                </g>
+            </svg>
+            New Task            
+        </a>
+    </div>
+    <div class="filter-card">
+        <form class="form-filter" [formGroup]="filterForm">
+            <div class="filter-row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input class="form-control" type="date" formControlName="date">
+                </div><!--End form-group-->
+
+                <div class="form-group">
+                    <label>title</label>
+                    <input class="form-control" type="text" formControlName="title">
+                </div><!--End form-group-->
+
+                <div class="form-group">
+                    <label>group</label>
+                    <select class="form-select" formControlName="group">
+                        <option value="">Select Group</option>
+                        <option value="Group A">Group A</option>
+                        <option value="Group B">Group B</option>
+                        <option value="Group C">Group C</option>
+                    </select>
+                </div><!--End form-group-->
+            </div>
+        </form>
+    </div>
+</section>

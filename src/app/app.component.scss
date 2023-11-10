@@ -1,0 +1,29 @@
+.main-content{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    .dashboard-content{
+        position: relative;
+        background-color: #4ba2d1;
+        background: linear-gradient(0deg, rgba(208,228,224,1) 0%, rgba(75,162,209,1) 100%);
+        width: calc(100% - 292px);
+        max-height: 100vh;
+        overflow: auto;
+        
+        .title{
+            padding: 18px 30px;
+            color: #fff;
+            background-color: #4d708e;
+            font-size: 22px;
+            font-weight: normal;
+            margin: 0;
+            height: 61px;
+        }
+    }
+
+    .content-body{
+        padding: 15px 30px;
+    }
+}

@@ -1,0 +1,49 @@
+.filter{
+    margin-bottom: 25px;
+    .filter-head{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        .title{
+            font-size: 18px;
+            color: #fff;
+            font-weight: 500;
+        }
+        .add-new{
+            background-color: #183c5b;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            padding: 7px 12px;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            svg{
+                margin-inline-end: 5px;
+            }
+        }
+    }
+    .filter-card{
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 2px;
+
+        .filter-row{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            .form-group{
+                margin-bottom: 0;
+                margin-inline-end: 40px;
+                &:last-child{
+                    margin-inline-end: 0;
+                }
+                
+            }
+        }
+    }
+}
